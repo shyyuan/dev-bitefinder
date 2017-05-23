@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="BiteFinder">
+
+<!-- ======= HTML HEAD ======= -->
+
+  <head>
+    <meta charset="utf-8">
+    <title>BITEFINDER</title>
+
+    <!-- ======= Google Fonts ======= -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Droid+Serif" rel="stylesheet">
+
+    <!-- ======= Custom CSS ======= -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- ======= AngularJS ======= -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <!-- ======= Angular Module ======= -->
+    <script src="/js/app.js" charset="utf-8"></script>
+
+    <!-- ======= Custom Directives (Angular) ======= -->
+    <script src="/js/directives.js" charset="utf-8"></script>
+
+    <!-- ======= Fontawesome ======= -->
+    <script src="https://use.fontawesome.com/8f7e00940c.js"></script>
+
+    <!-- ======= Viewport Meta Tag (for Mobile views) ======= -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ======= Favicons ======= -->
+    <link rel="icon" href="/img/favicon.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/img/favicon.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/img/favicon.png" sizes="48x48" type="image/png">
+    <link rel="icon" href="/img/favicon.png" sizes="62x62" type="image/png">
+
+  </head>
+
+  <!-- ======= HTML BODY ======= -->
+
+  <body ng-controller="MainController as main">
+    <section ng-controller="ZomatoController as zomato">
+
+    <!-- ======= Header ======= -->
+      <header ng-include="'partials/header.html'"></header>
+
+      <!-- ======= Nav ======= -->
+      <nav ng-include="'partials/navigation.html'"></nav>
+
+      <!-- ======= Main ======= -->
+      <main>
+        <!-- ======= TOGGLE PARTIALS ======= -->
+        <section ng-include="'partials/search.html'" ng-show="main.tab === 1"></section>
+        <section ng-include="'partials/login.html'" ng-show="main.tab === 2"></section>
+        <section ng-include="'partials/registration.html'" ng-show="main.tab === 3"></section>
+        <section ng-include="'partials/profile.html'" ng-show="main.tab === 4"></section> <!--Toggle ON If User is Logged in -->
+        <section ng-include="'partials/favorites.html'" ng-show="main.tab === 5"></section> <!--Toggle ON If User is Logged in-->
+        <footer ng-include="'partials/footer.html'"></footer>
+      </main>
+    </section>
+  </body>
+
+</html>

@@ -1,0 +1,60 @@
+
+<section class="wrapper" ng-if="main.sessionUser.username">
+
+  <div id="profile-info">
+    <div class="profile-row">
+      <div class="profile-image" ng-if="main.sessionUser.profilePic">
+        <img ng-src="{{main.sessionUser.profilePic}}" />
+      </div>
+      <div class="profile-image" ng-if="!main.sessionUser.profilePic">
+        <img ng-src="../img/apple.png" />
+      </div>
+      <div class="profile-stats">
+        <h2>{{main.sessionUser.name}}</h2>
+        <p>
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+ {{main.sessionUser.username}} <span ng-if="main.sessionUser.city"><i class="fa fa-map-marker" aria-hidden="true"></i>
+ {{main.sessionUser.city}}</span>
+        </p>
+        <p>
+          {{main.sessionUser.favorites.length}} pinned restaurants <span>{{main.sessionUser.savedLoc.length}} saved locations</span>
+        </p>
+        <p>
+          <a ng-click="main.editUser();" class="edit-buttons" ng-if="!main.editingUser">Edit Profile</a>
+          <a ng-click="main.deleteUser();" class="edit-buttons" ng-if="!main.editingUser">Delete Account</a>
+          <a ng-click="main.logOut();" class="edit-buttons" ng-if="!main.editingUser">Log Out</a>
+        </p>
+      </div>
+    </div>
+    <div ng-if="main.editingUser" class="edit-form">
+      <h3>Edit your account, {{main.sessionUser.name}}</h3>
+      <div class="edit-form-row">
+        <div>
+          <label for="username"><span>USERNAME</span><br /> <input type="text" ng-model="main.editUserData.username" value="main.editUserData.username" name="username"></label>
+        </div>
+        <div>
+          <label for="password"><span>PASSWORD</span><br /> <input type="password" ng-model="main.newPassword" placeholder="Not Required" name="password"></label>
+        </div>
+      </div>
+      <div class="edit-form-row">
+        <div>
+          <label for="displayName"><span>DISPLAY NAME</span><br /> <input type="text" ng-model="main.editUserData.name" value="main.editUserData.name" name="displayName"></label><br />
+          <label for="profilepic">ICON</label><br />
+          <select placeholder="profile picture" ng-model="main.editUserData.profilePic" name="profilepic"/>
+            <option value="../img/apple.png">Apple</option>
+            <option value="../img/banana.png">Banana</option>
+            <option value="../img/cherry.png">Cherry</option>
+            <option value="../img/orange.png">Orange</option>
+          </select>
+        </div>
+        <div>
+          <label for="city"><span>CITY</span><br /> <input type="text" ng-model="main.editUserData.city" value="main.editUserData.city" name="city"> </label>
+        </div>
+      </div>
+      <div class="edit-options">
+        <a ng-click="main.updateUser();" class="edit-buttons">UPDATE PROFILE</a>
+        <a ng-click="main.cancelEditUser();" class="edit-buttons">CANCEL UPDATE</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<ul>
+
+  <!-- Search button is showing if logged in OR out (global) -->
+  <li class="navlink" ng-class="{ tab: main.tab == 1 }" ng-click="main.tab = 1">Search</li>
+
+  <!-- TOGGLE BUTTON: Show if logged out -->
+  <li class="navlink" ng-class="{ tab: main.tab == 2 }" ng-click="main.tab = 2" ng-hide="main.sessionActive">Login</li>
+
+  <!-- TOGGLE BUTTON: Show if logged out -->
+  <li class="navlink" ng-class="{ tab: main.tab == 3 }" ng-click="main.tab = 3" ng-hide="main.sessionActive">Register</li>
+
+  <!-- TOGGLE BUTTON: Show if logged IN -->
+  <li class="navlink" ng-class="{ tab: main.tab == 4 }" ng-click="main.tab = 4" ng-show="main.sessionActive">Profile</li>
+
+  <!-- TOGGLE BUTTON: Show if logged IN -->
+  <li class="navlink" ng-class="{ tab: main.tab == 5 }" ng-click="main.tab = 5" ng-show="main.sessionActive">Favorites</li>
+  
+</ul>

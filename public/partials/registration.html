@@ -1,0 +1,41 @@
+<div class="wrapper">
+  <div class="login-reg">
+    <div class="login-reg-header">
+      <h3>Become a Member</h3>
+      <p>Members are able to save recent searches, pin favorite restaurants to a favorites list, and write & save restaurant notes.</p>
+    </div>
+    <form ng-submit="main.geolocator()" class="edit-form">
+      <div class="edit-form-row">
+        <div>
+          <span>USERNAME</span><br />
+          <input type="text" placeholder="username (required)" ng-model="main.newUserData.username" required />
+        </div>
+        <div>
+          <span>PASSWORD</span><br />
+          <input type="password" placeholder="password (required)" ng-model="main.newUserData.password" required />
+        </div>
+      </div>
+      <div class="edit-form-row">
+        <div>
+          <span>DISPLAY NAME</span><br />
+          <input type="text" placeholder="display name" ng-model="main.newUserData.name" />
+          <br />
+          <span>PROFILE ICON</span><br />
+          <select placeholder="profile picture" ng-model="main.newUserData.profilePic" value="Profile Icon"/>
+            <option value="../img/apple.png">Apple</option>
+            <option value="../img/banana.png">Banana</option>
+            <option value="../img/cherry.png">Cherry</option>
+            <option value="../img/orange.png">Orange</option>
+          </select>
+        </div>
+        <div>
+          <span>CITY</span><br />
+          <input type="text" placeholder="city" ng-model="main.newUserData.city" />
+        </div>
+      </div>
+      <div class="edit-options">
+        <input type="submit" value="submit" />
+      </div>
+    </form>
+  </div>
+</div>

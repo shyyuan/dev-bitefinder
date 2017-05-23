@@ -1,0 +1,38 @@
+<section class="wrapper">
+  <div class="favorites-header">
+    <h3>Welcome to Your Favorites Page!</h3>
+    <p>Here you can collect restaurant listings, and save your own personal notes to each restaurant.</p>
+    <div ng-if="main.sessionUser.favorites.length <= 0" class="favorite" ng-click="main.tab = 1">Looks like you have no favorites, go pin some now!</div>
+  </div>
+  <div class="favorite" ng-repeat="favorite in main.sessionUser.favorites" ng-click="zomato.showFavoriteRestaurantDetail($index);">
+    <h3>
+      {{favorite.name}}
+    </h3>
+    <p>
+      <i class="fa fa-cutlery" aria-hidden="true"></i> {{favorite.cuisines}} / <i class="fa fa-map-marker"></i> {{favorite.location.city}}
+    </p>
+    <!-- Conditional ng-if statements: repeat the dollar icon based on .price_range value -->
+    <p ng-if="favorite.price_range === 1">
+      <i class="fa fa-money" aria-hidden="true"></i>
+    </p>
+    <p ng-if="favorite.price_range === 2">
+      <i class="fa fa-money" aria-hidden="true"></i>
+      <i class="fa fa-money" aria-hidden="true"></i>
+    </p>
+    <p ng-if="favorite.price_range === 3">
+      <i class="fa fa-money" aria-hidden="true"></i>
+      <i class="fa fa-money" aria-hidden="true"></i>
+      <i class="fa fa-money" aria-hidden="true"></i>
+    </p>
+    <p ng-if="favorite.price_range === 4">
+      <i class="fa fa-money" aria-hidden="true"></i>
+      <i class="fa fa-money" aria-hidden="true"></i>
+      <i class="fa fa-money" aria-hidden="true"></i>
+      <i class="fa fa-money" aria-hidden="true"></i>
+    </p>
+    <p>
+      <i class="fa fa-star" aria-hidden="true"></i> {{favorite.user_rating.aggregate_rating}} / {{favorite.user_rating.votes}} votes
+    </p>
+  </div> <!-- ng-repeat through an array of search results -->
+  <div id="modal" ng-if="zomato.isViewRestaurantActive" ng-include="'partials/search/modal.html'"></div>
+</section>

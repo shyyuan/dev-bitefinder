@@ -1,0 +1,14 @@
+<div id="search-container">
+  <img src="img/fork.png" alt="Fork and spoon" id="fork">
+  <h3>Saved Locations</h3>
+</div>
+<div id="location-results">
+  <div>
+    <ul>
+      <li ng-repeat="location in main.sessionUser.savedLoc">
+        <a ng-click="zomato.findRestaurants(location.cityId);">{{location.name}}</a>
+        <i class="fa fa-trash-o fa-lg" aria-hidden="true" ng-click="zomato.deleteLocation(location);"></i>
+      </li>
+    </ul>
+  </div>
+</div>

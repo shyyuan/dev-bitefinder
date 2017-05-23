@@ -1,0 +1,28 @@
+<h3>
+  {{restaurant.restaurant.name}}
+</h3>
+<p>
+  <i class="fa fa-cutlery" aria-hidden="true"></i> {{restaurant.restaurant.cuisines}}
+</p>
+<!-- Conditional ng-if statements: repeat the dollar icon based on .price_range value -->
+<p ng-if="restaurant.restaurant.price_range === 1">
+  <i class="fa fa-money" aria-hidden="true"></i>
+</p>
+<p ng-if="restaurant.restaurant.price_range === 2">
+  <i class="fa fa-money" aria-hidden="true"></i>
+  <i class="fa fa-money" aria-hidden="true"></i>
+</p>
+<p ng-if="restaurant.restaurant.price_range === 3">
+  <i class="fa fa-money" aria-hidden="true"></i>
+  <i class="fa fa-money" aria-hidden="true"></i>
+  <i class="fa fa-money" aria-hidden="true"></i>
+</p>
+<p ng-if="restaurant.restaurant.price_range === 4">
+  <i class="fa fa-money" aria-hidden="true"></i>
+  <i class="fa fa-money" aria-hidden="true"></i>
+  <i class="fa fa-money" aria-hidden="true"></i>
+  <i class="fa fa-money" aria-hidden="true"></i>
+</p>
+<p>
+  <i class="fa fa-star" aria-hidden="true"></i> {{restaurant.restaurant.user_rating.aggregate_rating}} / {{restaurant.restaurant.user_rating.votes}} votes
+</p>

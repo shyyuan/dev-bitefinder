@@ -1,0 +1,45 @@
+<section>
+
+  <!-- ======== Welcome Message for Logged In Users ======= -->
+  <div class="wrapper welcome" id="gallery" ng-if="!main.userLoginFailed && main.sessionUser.username">
+    <h3>Welcome, {{main.sessionUser.name}}!<br /> What can we find for you today?</h3>
+  </div>
+
+  <!-- ======= Location Search ======= -->
+  <div class="wrapper location" ng-include="'partials/search/location.html'"></div>
+
+  <!-- ======= Saved Locations (toggles only if a user is logged in and has saved locations) ======= -->
+  <div class="wrapper location" ng-if="main.sessionActive && main.sessionUser.savedLoc.length > 0" ng-include="'partials/search/saved-location.html'"></div>
+
+  <!-- ======= Photo Banner ======= -->
+  <div id="food-banner" ng-if="!zomato.isViewGalleryActive">
+    <img src="/img/plate.jpg" alt="Plate of breakfast food with eggs and sausage" id="plate">
+    <img src="/img/cupcakes.jpg" alt="Frosted cupcakes with bacon sprinkles" id="cupcakes">
+  </div>
+
+  <!-- ======= Search Results ======= -->
+  <div class="wrapper" id="gallery" ng-if="zomato.isViewGalleryActive">
+
+    <!-- ====== Shows Location restaurants are from ===== -->
+      <!-- ===== If Default Location ==== -->
+      <div ng-if="zomato.defaultLocation" class="results-header">
+        <h2>Looks like you're in {{zomato.locationName}}</h2>
+        <h4>Not what you're looking for? Try a search!</h4>
+      </div>
+
+      <!-- ==== If Regular Search === -->
+      <div ng-if="zomato.regularSearch" class="results-header">
+        <h2>Currently showing locations in {{zomato.locationName}}</h2>
+      </div>
+
+    <!-- ======== Filter by Cuisine Type ======= -->
+    <div ng-include="'/partials/search/filter.html'" id="filter-container"></div>
+
+    <!-- ========= Restaurant Listings Begin Here ======== -->
+    <div class="result" ng-repeat="restaurant in zomato.foundRestaurants"  ng-click="zomato.showRestaurantDetail($index);" ng-include="'partials/search/restaurant-results.html'"></div>
+
+  </div>
+
+  <!-- ======== Modal Popup to Display One Restaurant ======= -->
+  <div id="modal" ng-if="zomato.isViewRestaurantActive" ng-include="'partials/search/modal.html'"></div>
+</section>

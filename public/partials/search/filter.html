@@ -1,0 +1,17 @@
+
+<h3>Select a Filter</h3>
+<p id="cuisine-list">
+  <span ng-click="zomato.cuisineSearch = 'all'" ng-class="{query: zomato.cuisineSearch === 'all'}">Top 20</span>
+  <span ng-click="zomato.cuisineSearch = 'coffee and tea'" ng-class="{query: zomato.cuisineSearch === 'coffee and tea'}">Coffee & Tea</span>
+  <span ng-click="zomato.cuisineSearch = 'american'" ng-class="{query: zomato.cuisineSearch === 'american'}">American</span>
+  <span ng-click="zomato.cuisineSearch = 'breakfast'" ng-class="{query: zomato.cuisineSearch === 'breakfast'}">Breakfast</span>
+  <span ng-click="zomato.cuisineSearch = 'vegetarian'" ng-class="{query: zomato.cuisineSearch === 'vegetarian'}">Vegetarian</span>
+  <span ng-click="zomato.cuisineSearch = 'mexican'" ng-class="{query: zomato.cuisineSearch === 'mexican'}">Mexican</span>
+  <span ng-click="zomato.cuisineSearch = 'pizza'" ng-class="{query: zomato.cuisineSearch === 'pizza'}">Pizza</span>
+  <span ng-click="zomato.cuisineSearch = 'sushi'" ng-class="{query: zomato.cuisineSearch === 'sushi'}">Sushi</span>
+  <span ng-click="zomato.cuisineSearch = 'sandwich'" ng-class="{query: zomato.cuisineSearch === 'sandwich'}">Sandwich</span>
+  <span ng-click="zomato.cuisineSearch = 'desserts'" ng-class="{query: zomato.cuisineSearch === 'desserts'}">Desserts</span>
+  <span ng-click="zomato.cuisineSearch = 'japanese'" ng-class="{query: zomato.cuisineSearch === 'japanese'}">Japanese</span>
+  <span ng-click="zomato.cuisineSearch = 'bar food'" ng-class="{query: zomato.cuisineSearch === 'bar food'}">Bar Food</span>
+</p>
+<p ng-click="zomato.findRestaurantsByCuisine()" id="filter-button">Filter My Results</p>

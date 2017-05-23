@@ -1,0 +1,43 @@
+<!--  SHOW MODAL to Inspect One Restaurant's Details  -->
+  <div id="modal-box">
+    <div id="modal-header">
+      <img src="/img/fork.png" alt="Fork and Spoon">
+      <h2>{{zomato.restaurantDetail.name}}</h2>
+    </div>
+    <hr>
+    <!-- DETAILS FOR SPECIFIC RESTAURANT -->
+      <img src="{{zomato.restaurantDetail.featured_image}}"> <br/>
+      <div id="modal-body">
+        <p>{{zomato.restaurantDetail.location.address}} <br/>
+          <strong>Cuisines</strong>: {{zomato.restaurantDetail.cuisines}} <br/>
+          <strong>Cost</strong>: Average ${{zomato.restaurantDetail.average_cost_for_two}} for two people<br/>
+          <strong>Price Range</strong>: {{zomato.restaurantDetail.price_range}} <br/>
+          <strong>Rating</strong>: {{zomato.restaurantDetail.user_rating.aggregate_rating}}/5 ({{zomato.restaurantDetail.user_rating.votes}} votes)
+        </p>
+            <!-- BUTTONS -->
+        <div>
+          <a href="{{zomato.restaurantDetail.url}}" target="_blank" class="zomato-link">view on zomato</a>
+
+          <!-- ADD TO FAVORITES -->
+          <form ng-submit="zomato.saveRestaurant()" ng-if="!zomato.isFavoriteRestaurant">
+            <input type="submit" ng-if="main.sessionUser.username" value="Add to Favorites"/>
+          </form>
+          <p ng-if="zomato.saveRestaurantSuccess" id="success">Added!</p>
+          <!-- REMOVE FROM FAVORITES -->
+          <form ng-submit="zomato.deleteRestaurant()" ng-if="zomato.isFavoriteRestaurant">
+            <input type="submit" ng-if="main.sessionUser.username" value="Remove from Favorites"/>
+          </form>
+          <button ng-click="zomato.closeRestaurantDetail()" id="close-modal">close details</button>
+        </div>
+
+        <div ng-if="main.sessionUser.username && zomato.isFavoriteRestaurant">
+          <h3>My notes about this restaurant</h3>
+          <form ng-submit="zomato.saveReview(zomato.userReview._id)">
+            <textarea ng-model="zomato.userReview.comments" rows="4" cols="60">{{zomatto.userReview.comments}}</textarea>
+            <input type="submit" value="Save">
+          </form>
+
+        </div>
+
+      </div>
+  </div>
