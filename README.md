@@ -1,3 +1,5 @@
+<h1>WDIR Project 3 (Group Project)</h1>
+
 # BiteFinder
 <b>Live Site</b>: http://http://bitefinder.herokuapp.com/
 <!-- ============= TECHNOLOGIES USED ============= -->
